@@ -1,13 +1,13 @@
 require 'sinatra'
 require 'line/bot'
-
-# 微小変更部分！確認用。
+require './messages'
+require './library'
 get '/' do
-  "Hello world"
+  rand_genre[:url]
 end
 
 def client
-  @client ||= Line::Bot::Client.new { |config|
+	@client ||= Line::Bot::Client.new { |config|
     config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
     config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
   }
@@ -27,11 +27,14 @@ post '/callback' do
     when Line::Bot::Event::Message
       case event.type
       when Line::Bot::Event::MessageType::Text
-        message = {
-          type: 'text',
-          text: event.message['text']
-        }
-        client.reply_message(event['replyToken'], message)
+        if event.message['text'] =~ /寝かせて/
+          #client.reply_message(event['replyToken'], reply_message('少しお待ちください'))
+          client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
+        elsif event.message['text'] =~ /情報/
+	        client.reply_message(event['replyToken'], reply_template_museum(reply_museum_data))
+        else
+	        client.reply_message(event['replyToken'], reply_message(event.message['text']))
+  			end
       when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
         response = client.get_message_content(event.message['id'])
         tf = Tempfile.open("content")
