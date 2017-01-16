@@ -38,7 +38,12 @@ def hoge(museum)
         "type": "uri",
 		    "label": "詳しく",
 	  	  "uri": museum["url"]
-      }
+      },
+			{
+				"type": "postback",
+				"label": "keep",
+				"data": "keep"
+			}
     ]
   }
 end
