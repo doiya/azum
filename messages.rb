@@ -57,7 +57,12 @@ def reply_template_museum(museum)
 	            "type": "uri",
 	            "label": "詳しく",
 	            "uri": museum["url"]
-	          }
+	          },
+						{
+              "type": "postback",
+              "label": "Keepする",
+              "data": "keep, " + museum.to_s
+          }
 	      ]
 	  }
 	}
