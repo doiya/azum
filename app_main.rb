@@ -40,7 +40,6 @@ post '/callback' do
         tf = Tempfile.open("content")
         tf.write(response.body)
       end
-    end
 
 		# Postbackの場合
 		when Line::Bot::Event::Postback
