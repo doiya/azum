@@ -50,22 +50,25 @@ def reply_botton_schedule
 	          {
 	            "type": "postback",
 	            "label": "今日",
-							"text": "今日だね",
+							"text": "今日",
 	            "data": "今日だね"
 	          },
 	          {
 	            "type": "postback",
 	            "label": "明日",
+							"text": "明日",
 	            "data": "明日だね"
 	          },
 						{
 							"type": "postback",
 							"label": "週末",
+							"text": "週末",
 							"data": "週末だね"
 						},
 	          {
 	            "type": "postback",
 	            "label": "決まってない",
+							"text": "決まってない",
 	            "data": "じゃあ、今開催中のを紹介するね"
 	          }
 	      ]
