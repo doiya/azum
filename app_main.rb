@@ -30,7 +30,7 @@ post '/callback' do
 				if event.message['text'] =~ /あずみん起きて/
 					client.reply_message(event['replyToken'], reply_confirm_start)
 
-				elsif event.message['text'] == /行きたい/
+				elsif event.message['text'] =~ /行きたい/
 					client.reply_message(event['replyToken'], reply_botton_schedule)
 
 				elsif event.message['text'] =~ /寝かせて/
