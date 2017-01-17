@@ -32,6 +32,7 @@ def reply_confirm
 	      ]
 	  }
 	}
+end
 
 def reply_botton
 	{
@@ -61,6 +62,7 @@ def reply_botton
 	      ]
 	  }
 	}
+end
 
 def reply_carousel_museums(museums)
 	randoms = (0...museums.count).to_a.shuffle![0...5]
