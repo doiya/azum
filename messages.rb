@@ -33,7 +33,7 @@ def reply_confirm_start
 						{
 							"type": "message",
 							"label": "hoge",
-							"text" : "hoge"
+							"text": "hoge"
 						}
 	      ]
 	  }
