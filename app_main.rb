@@ -54,11 +54,11 @@ post '/callback' do
 		when Line::Bot::Event::Postback
 			if event["postback"]["data"] =~ /行きたい/
 				client.reply_message(event['replyToken'], reply_botton_schedule)
-		elsif event["postback"]['data'] =~ /呼んだだけ/
+			elsif event["postback"]['data'] =~ /呼んだだけ/
 			client.reply_message(event['replyToken'], reply_message('もう (おこ)'))
 
 
-			if event["postback"]["data"] =~ /今日だね/
+			elsif event["postback"]["data"] =~ /今日だね/
 				client.reply_message(event['replyToken'], reply_message("今日だね。\nこんなのはどうかな？"))
 			elsif event["postback"]["data"] =~ /明日だね/
 				client.reply_message(event['replyToken'], reply_message("明日だね。\nこんなのはどうかな？"))
