@@ -29,7 +29,12 @@ def reply_confirm_start
 	            "type": "message",
 	            "label": "No",
 	            "text": "呼んでみただけ"
-	          }
+	          },
+						{
+							"type": "message",
+							"label": "hoge",
+							"text" : "hoge"
+						}
 	      ]
 	  }
 	}
