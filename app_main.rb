@@ -53,7 +53,9 @@ post '/callback' do
 		when Line::Bot::Event::Postback
 			if event["postback"]["data"] =~ /keep/
 				client.reply_message(event['replyToken'], reply_message(event["postback"]["data"]))
-			end
+				
+			elsif event["postback"]["data"] =~ /ここいいかも/
+				client.reply_message(event['replyToken'], reply_message(event["postback"]["data"]))
 		end
   }
 

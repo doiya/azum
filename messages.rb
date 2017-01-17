@@ -22,12 +22,12 @@ def reply_confirm_start
 	      "actions": [
 	          {
 	            "type": "message",
-	            "label": "Yes",
+	            "label": "行きたい！",
 	            "text": "行きたい！"
 	          },
 	          {
 	            "type": "message",
-	            "label": "No",
+	            "label": "呼んでみただけ",
 	            "text": "呼んでみただけ"
 	          }
 	      ]
@@ -105,6 +105,11 @@ def hoge(museum)
 				"type": "postback",
 				"label": "keep",
 				"data": "keep"
+			},
+			{
+				"type": "postback",
+				"label": "ここいいかも",
+				"data": museum["title"] + "\nここいいかも"
 			}
     ]
   }
