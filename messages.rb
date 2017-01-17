@@ -42,7 +42,7 @@ def reply_botton_schedule
 	  "altText": "this is a buttons template",
 	  "template": {
 	      "type": "buttons",
-	      "thumbnailImageUrl": "http://res.cloudinary.com/dn8dt0pep/image/upload/v1484641224/question.jpg",
+	      "thumbnailImageUrl": "images/question.jpg",
 	      "title": "日程決めるよ",
 	      "text": "いつがいい？",
 	      "actions": [
