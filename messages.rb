@@ -107,9 +107,9 @@ def hoge(museum)
 				"data": "keep"
 			},
 			{
-				"type": "postback",
+				"type": "message",
 				"label": "ここいいかも",
-				"data": museum["title"] + "\nここいいかも"
+				"text": museum["title"] + "\nここいいかも"
 			}
     ]
   }

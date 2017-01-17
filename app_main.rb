@@ -40,6 +40,11 @@ post '/callback' do
           client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
         elsif event.message['text'] =~ /情報/
 	        client.reply_message(event['replyToken'], reply_template_museum(reply_museum_data))
+
+				elsif event.message['text'] =~ /ここいいかも/
+					client.reply_message(event['replyToken'], reply_message(event["message"]["text"]))
+
+
         else
 	        #client.reply_message(event['replyToken'], reply_message(event.message['text']))
   			end
@@ -54,8 +59,8 @@ post '/callback' do
 			if event["postback"]["data"] =~ /keep/
 				client.reply_message(event['replyToken'], reply_message(event["postback"]["data"]))
 
-			elsif event["postback"]["data"] =~ /ここいいかも/
-				client.reply_message(event['replyToken'], reply_message(event["postback"]["data"]))
+			#elsif event["postback"]["data"] =~ /ここいいかも/
+			#	client.reply_message(event['replyToken'], reply_message(event["postback"]["data"]))
 			end
 		end
   }
