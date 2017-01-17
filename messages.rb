@@ -21,14 +21,16 @@ def reply_confirm_start
 	      "text": "おはよう\nイベント行きたいの？",
 	      "actions": [
 	          {
-	            "type": "message",
+	            "type": "postback",
 	            "label": "行きたい！",
-	            "text": "行きたい！"
+	            "text": "行きたい！",
+							"data": "行きたい"
 	          },
 	          {
-	            "type": "message",
+	            "type": "postback",
 	            "label": "呼んだだけ",
-	            "text": "呼んだだけ"
+	            "text": "呼んだだけ",
+							"data": "呼んだだけ"
 	          }
 	      ]
 	  }

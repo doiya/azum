@@ -30,10 +30,10 @@ post '/callback' do
 				if event.message['text'] =~ /あずみん起きて/
 					client.reply_message(event['replyToken'], reply_confirm_start)
 
-				elsif event.message['text'] =~ /行きたい！/
-					client.reply_message(event['replyToken'], reply_botton_schedule)
-				elsif event.message['text'] =~ /呼んだだけ/
-					client.reply_message(event['replyToken'], reply_message('もう (おこ)'))
+				#elsif event.message['text'] =~ /行きたい！/
+				#	client.reply_message(event['replyToken'], reply_botton_schedule)
+				#elsif event.message['text'] =~ /呼んだだけ/
+				#	client.reply_message(event['replyToken'], reply_message('もう (おこ)'))
 
 				elsif event.message['text'] =~ /寝かせて/
           #client.reply_message(event['replyToken'], reply_message('少しお待ちください'))
@@ -52,14 +52,20 @@ post '/callback' do
 
 		# Postbackの場合
 		when Line::Bot::Event::Postback
+			if event["postback"]["data"] =~ /行きたい/
+				client.reply_message(event['replyToken'], reply_botton_schedule)
+		elsif event["postback"]['data'] =~ /呼んだだけ/
+			client.reply_message(event['replyToken'], reply_message('もう (おこ)'))
+
+
 			if event["postback"]["data"] =~ /今日だね/
-				client.reply_message(event['replyToken'], reply_message("今日だね\nこんなのはどうかな"))
+				client.reply_message(event['replyToken'], reply_message("今日だね。\nこんなのはどうかな？"))
 			elsif event["postback"]["data"] =~ /明日だね/
-				client.reply_message(event['replyToken'], reply_message("明日だね\nこんなのはどうかな"))
+				client.reply_message(event['replyToken'], reply_message("明日だね。\nこんなのはどうかな？"))
 			elsif event["postback"]["data"] =~ /週末だね/
-				client.reply_message(event['replyToken'], reply_message("週末だね\nこんなのはどうかな"))
+				client.reply_message(event['replyToken'], reply_message("週末だね。\nこんなのはどうかな？"))
 			elsif event["postback"]["data"] =~ /決まっていない/
-				client.reply_message(event['replyToken'], reply_message("じゃあ、今開催中のを紹介するね\nこんなのはどうかな"))
+				client.reply_message(event['replyToken'], reply_message("じゃあ、今開催中のイベントを紹介するね。\nこんなのはどうかな？"))
 
 
 			elsif event["postback"]["data"] =~ /keep/
