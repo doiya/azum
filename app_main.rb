@@ -33,7 +33,7 @@ post '/callback' do
 				elsif event.message['text'] =~ /行きたい/
 					client.reply_message(event['replyToken'], reply_botton_schedule)
 				elsif event.message['text'] =~ /呼んでみただけ/
-					client.reply_message(even['replyToken'], reply_message("もう (おこ)"))
+					client.reply_message(even['replyToken'], reply_message('もう'))
 
 				elsif event.message['text'] =~ /寝かせて/
           #client.reply_message(event['replyToken'], reply_message('少しお待ちください'))
