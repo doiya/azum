@@ -11,7 +11,8 @@ def reply_message(message='')
   }
 end
 
-def reply_confirm
+# "あずみん起きて"
+def reply_confirm_start
 	{
 	  "type": "template",
 	  "altText": "this is a confirm template",
@@ -34,30 +35,31 @@ def reply_confirm
 	}
 end
 
-def reply_botton
+# "行きたい！"
+def reply_botton_schedule
 	{
 	  "type": "template",
 	  "altText": "this is a buttons template",
 	  "template": {
 	      "type": "buttons",
 	      #"thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
-	      "title": "Menu",
-	      "text": "Please select",
+	      #"title": "",
+	      "text": "いつがいい？",
 	      "actions": [
 	          {
 	            "type": "postback",
-	            "label": "Buy",
+	            "label": "今日",
 	            "data": "action=buy&itemid=123"
 	          },
 	          {
 	            "type": "postback",
-	            "label": "Add to cart",
+	            "label": "明日",
 	            "data": "action=add&itemid=123"
 	          },
 	          {
-	            "type": "uri",
-	            "label": "View detail",
-	            "uri": "http://example.com/page/123"
+	            "type": "postback",
+	            "label": "決まってない",
+	            "data": "action"
 	          }
 	      ]
 	  }
