@@ -42,7 +42,8 @@ def reply_botton_schedule
 	  "altText": "this is a buttons template",
 	  "template": {
 	      "type": "buttons",
-	      "thumbnailImageUrl": "images/question.jpg",
+	    #  "thumbnailImageUrl": "images/question.jpg",
+				"thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
 	      "title": "日程決めるよ",
 	      "text": "いつがいい？",
 	      "actions": [
