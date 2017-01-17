@@ -59,8 +59,8 @@ def reply_botton_schedule
 						{
 							"type": "postback",
 							"label": "週末",
-							"data" : "action"
-						}
+							"data": "hoge"
+						},
 	          {
 	            "type": "postback",
 	            "label": "決まってない",
