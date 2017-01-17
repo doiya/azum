@@ -30,9 +30,9 @@ post '/callback' do
 				if event.message['text'] =~ /あずみん起きて/
 					client.reply_message(event['replyToken'], reply_confirm_start)
 
-				elsif event.message['text'] =~ /行きたい/
+				elsif event.message['text'] =~ /行きたい！/
 					client.reply_message(event['replyToken'], reply_botton_schedule)
-				elsif event.message['text'] =~ /呼んでみただけ/
+				elsif event.message['text'] =~ /呼んだだけ/
 					client.reply_message(event['replyToken'], reply_message('もう (おこ)'))
 
 				elsif event.message['text'] =~ /寝かせて/
@@ -41,11 +41,7 @@ post '/callback' do
         elsif event.message['text'] =~ /情報/
 	        client.reply_message(event['replyToken'], reply_template_museum(reply_museum_data))
 
-				#elsif event.message['text'] =~ /ここいいかも/
-				#	client.reply_message(event['replyToken'], reply_message(event["message"]["text"]))
-
-
-        else
+        #else
 	        #client.reply_message(event['replyToken'], reply_message(event.message['text']))
   			end
       when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
@@ -56,11 +52,9 @@ post '/callback' do
 
 		# Postbackの場合
 		when Line::Bot::Event::Postback
+			#if event["postback"]["data"] =~ /明日だね/
 			if event["postback"]["data"] =~ /keep/
 				client.reply_message(event['replyToken'], reply_message(event["postback"]["data"]))
-
-			#elsif event["postback"]["data"] =~ /ここいいかも/
-			#	client.reply_message(event['replyToken'], reply_message(event["postback"]["data"]))
 			end
 		end
   }

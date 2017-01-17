@@ -27,8 +27,8 @@ def reply_confirm_start
 	          },
 	          {
 	            "type": "message",
-	            "label": "呼んでみただけ",
-	            "text": "呼んでみただけ"
+	            "label": "呼んだだけ",
+	            "text": "呼んだだけ"
 	          }
 	      ]
 	  }
@@ -50,22 +50,23 @@ def reply_botton_schedule
 	          {
 	            "type": "postback",
 	            "label": "今日",
-	            "data": "action=buy&itemid=123"
+							"text": "今日だね",
+	            "data": "今日だね"
 	          },
 	          {
 	            "type": "postback",
 	            "label": "明日",
-	            "data": "action=add&itemid=123"
+	            "data": "明日だね"
 	          },
 						{
 							"type": "postback",
 							"label": "週末",
-							"data": "hoge"
+							"data": "週末だね"
 						},
 	          {
 	            "type": "postback",
 	            "label": "決まってない",
-	            "data": "action"
+	            "data": "じゃあ、今開催中のを紹介するね"
 	          }
 	      ]
 	  }
