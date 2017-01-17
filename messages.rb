@@ -35,7 +35,7 @@ def reply_confirm_start
 	}
 end
 
-# "行きたい！"
+# "行きたい！" 日程選択
 def reply_botton_schedule
 	{
 	  "type": "template",
@@ -69,7 +69,7 @@ def reply_botton_schedule
 	            "type": "postback",
 	            "label": "決まってない",
 							"text": "決まってない",
-	            "data": "じゃあ、今開催中のを紹介するね"
+	            "data": "決まっていない"
 	          }
 	      ]
 	  }
