@@ -28,7 +28,7 @@ post '/callback' do
       case event.type
       when Line::Bot::Event::MessageType::Text
 				if event.message['text'] =~ /イベント/
-					client.reply_message(event['replyToken'], reply_message(いつがいい？))
+					client.reply_message(event['replyToken'], reply_message('いつがいい？'))
 				elsif event.message['text'] =~ /寝かせて/
           #client.reply_message(event['replyToken'], reply_message('少しお待ちください'))
           client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
