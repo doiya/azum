@@ -43,7 +43,7 @@ def reply_botton_schedule
 	  "template": {
 	      "type": "buttons",
 	    #  "thumbnailImageUrl": "images/question.jpg",
-				"thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+				"thumbnailImageUrl": "http://res.cloudinary.com/dn8dt0pep/image/upload/v1484641224/question.jpg",
 	      "title": "日程決めるよ",
 	      "text": "いつがいい？",
 	      "actions": [
