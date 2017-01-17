@@ -11,6 +11,57 @@ def reply_message(message='')
   }
 end
 
+def reply_confirm
+	{
+	  "type": "template",
+	  "altText": "this is a confirm template",
+	  "template": {
+	      "type": "confirm",
+	      "text": "おはよう\nイベント行きたいの？",
+	      "actions": [
+	          {
+	            "type": "message",
+	            "label": "Yes",
+	            "text": "行きたい！"
+	          },
+	          {
+	            "type": "message",
+	            "label": "No",
+	            "text": "呼んでみただけ"
+	          }
+	      ]
+	  }
+	}
+
+def reply_botton
+	{
+	  "type": "template",
+	  "altText": "this is a buttons template",
+	  "template": {
+	      "type": "buttons",
+	      #"thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+	      "title": "Menu",
+	      "text": "Please select",
+	      "actions": [
+	          {
+	            "type": "postback",
+	            "label": "Buy",
+	            "data": "action=buy&itemid=123"
+	          },
+	          {
+	            "type": "postback",
+	            "label": "Add to cart",
+	            "data": "action=add&itemid=123"
+	          },
+	          {
+	            "type": "uri",
+	            "label": "View detail",
+	            "uri": "http://example.com/page/123"
+	          }
+	      ]
+	  }
+	}
+
 def reply_carousel_museums(museums)
 	randoms = (0...museums.count).to_a.shuffle![0...5]
 {
