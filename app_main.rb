@@ -31,7 +31,7 @@ post '/callback' do
 					client.reply_message(event['replyToken'], reply_confirm_start)
 
 				elsif event.message['text'] == /行きたい/
-					client.reply_message(event['replyToken']), reply_botton_schedule)
+					client.reply_message(event['replyToken'], reply_botton_schedule)
 
 				elsif event.message['text'] =~ /寝かせて/
           #client.reply_message(event['replyToken'], reply_message('少しお待ちください'))
