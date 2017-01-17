@@ -56,6 +56,11 @@ def reply_botton_schedule
 	            "label": "明日",
 	            "data": "action=add&itemid=123"
 	          },
+						{
+							"type": "postback",
+							"label": "週末",
+							"data" : "action"
+						}
 	          {
 	            "type": "postback",
 	            "label": "決まってない",
@@ -65,6 +70,7 @@ def reply_botton_schedule
 	  }
 	}
 end
+
 
 def reply_carousel_museums(museums)
 	randoms = (0...museums.count).to_a.shuffle![0...5]
