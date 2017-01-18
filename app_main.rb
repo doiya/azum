@@ -56,7 +56,7 @@ post '/callback' do
 		when Line::Bot::Event::Postback
 			if event["postback"]["data"] =~ /行きたい/
 				#client.reply_message(event['replyToken'], reply_botton_schedule)
-				#client.reply_message(event['replyToken'], reply_message("おっけー\nおすすめのイベントを紹介するね"))
+				client.reply_message(event['replyToken'], reply_message("おっけー\nおすすめのイベントを紹介するね"))
 				client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
 
 			elsif event["postback"]['data'] =~ /呼んだだけ/
