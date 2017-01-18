@@ -81,24 +81,36 @@ end
 
 def reply_carousel_museums(museums)
 	randoms = (0...museums.count).to_a.shuffle![0...5]
-{
+	randoms.map!{|item| hoge(museums[item])}
+	{
+	  "type": "template",
+	  "altText": "this is a carousel template",
+	  "template": {
+	      "type": "carousel",
+	      "columns": randoms
+	  }
+	}
+end
+
+def reply_carousel_bookmarks(channel='')
+	keeps = Keep.where(channel: channel).order("updated_at desc").limit(5).map {|event|
+    hoge(param_decode(event['json']))
+  }
+	keeps
+	{
   "type": "template",
   "altText": "this is a carousel template",
   "template": {
-      "type": "carousel",
-      "columns": [
-        hoge(museums[randoms[0]]),
-       	hoge(museums[randoms[1]]),
-       	hoge(museums[randoms[2]]),
-       	hoge(museums[randoms[3]]),
-       	hoge(museums[randoms[4]])
-      ]
+     "type": "carousel",
+     "columns": keeps
   }
 }
 end
+
 def hoge(museum)
+	museum["type"] = 'keep'
 	{
-		"thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+		"thumbnailImageUrl": "https://res.cloudinary.com/dn8dt0pep/image/upload/v1484641224/question.jpg",
     "title": museum["title"].slice(0,40-museum["area"].size-1) + '/' + museum["area"],
 	  "text": museum["body"],
 	  "actions": [
@@ -110,7 +122,8 @@ def hoge(museum)
 			{
 				"type": "postback",
 				"label": "keep",
-				"data": "keep"
+				"text": museum["title"] + ' をブックマークしました',
+				"data": param_encode(museum)
 			},
 			{
 				"type": "message",
@@ -153,7 +166,7 @@ def reply_museum_datas(url = rand_genre[:url])
 	  	doc = REXML::Document.new(response.body)
 	  	array = []
 	  	doc.elements.each('Events/Event') do |event|
-#	  	doc.elements['Events'].each do |event|
+	  	#doc.elements['Events'].each do |event|
 		  	res = {}
 		  	res["title"] = event.elements['Name'].text
 		  	res["url"]   = event.attribute('href').to_s

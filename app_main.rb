@@ -2,8 +2,11 @@ require 'sinatra'
 require 'line/bot'
 require './messages'
 require './library'
+require './models/keeps'
+require 'json'
+
 get '/' do
-  rand_genre[:url]
+	reply_carousel_bookmarks.to_s
 end
 
 def client
@@ -30,16 +33,15 @@ post '/callback' do
 				if event.message['text'] =~ /あずみん起きて/
 					client.reply_message(event['replyToken'], reply_confirm_start)
 
-				#elsif event.message['text'] =~ /行きたい！/
-				#	client.reply_message(event['replyToken'], reply_botton_schedule)
-				#elsif event.message['text'] =~ /呼んだだけ/
-				#	client.reply_message(event['replyToken'], reply_message('もう (おこ)'))
-
 				elsif event.message['text'] =~ /寝かせて/
           #client.reply_message(event['replyToken'], reply_message('少しお待ちください'))
           client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
         elsif event.message['text'] =~ /情報/
 	        client.reply_message(event['replyToken'], reply_template_museum(reply_museum_data))
+
+				elsif event.message['text'] =~ /ブックマーク/
+          channel = get_id(event["source"])
+          client.reply_message(event['replyToken'], reply_carousel_bookmarks(channel))
 
         #else
 	        #client.reply_message(event['replyToken'], reply_message(event.message['text']))
@@ -67,9 +69,16 @@ post '/callback' do
 			elsif event["postback"]["data"] =~ /決まっていない/
 				client.reply_message(event['replyToken'], reply_message("じゃあ、今開催中のイベントを紹介するね。\nこんなのはどうかな？"))
 
+			#elsif event["postback"]["data"] =~ /keep/
+			#	client.reply_message(event['replyToken'], reply_message(event["postback"]["data"]))
 
-			elsif event["postback"]["data"] =~ /keep/
-				client.reply_message(event['replyToken'], reply_message(event["postback"]["data"]))
+			else
+				data = param_decode(event["postback"]["data"])
+				puts data.to_s
+				client.reply_message(event['replyToken'], reply_message("type は"+data['title']))
+				channel_id = get_id(event["source"])
+				Keep.create(:channel=>channel_id, :json=>event["postback"]["data"])
+				client.reply_message(event['replyToken'], reply_message(data['title'] + 'をブックマークしました!'))
 			end
 		end
   }
