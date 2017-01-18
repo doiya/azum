@@ -13,4 +13,4 @@ gem 'sinatra-activerecord'
 gem 'rake'
 
 gem 'sqlite3', groups: %w(test development), require: false
-gem 'pg', groups: %w(production), require: false
+#gem 'pg', groups: %w(production), require: false
