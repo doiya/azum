@@ -83,7 +83,7 @@ def reply_message_intro
 		"type": "text",
 		"text": "おっけー\nおすすめのイベントを紹介するね"
 	}
-	client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
+	#client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
 end
 
 def reply_carousel_museums(museums)
