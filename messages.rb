@@ -80,11 +80,11 @@ end
 
 def reply_message_intro
 	message = {
-		"type": "postback",
+		"type": "text",
 		"text": "おっけー\nおすすめのイベントを紹介するね",
-		"data": "intro"
 	}
-	#client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
+	return message
+	client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
 end
 
 def reply_carousel_museums(museums)
