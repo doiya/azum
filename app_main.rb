@@ -2,7 +2,7 @@ require 'sinatra'
 require 'line/bot'
 require './messages'
 require './library'
-require './models/keeps'
+#require './models/keeps'
 require 'json'
 
 get '/' do
@@ -58,7 +58,7 @@ post '/callback' do
 				#client.reply_message(event['replyToken'], reply_botton_schedule)
 				client.reply_message(event['replyToken'], reply_message("おっけー\nおすすめのイベントを紹介するね"))
 				client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
-				
+
 			elsif event["postback"]['data'] =~ /呼んだだけ/
 			client.reply_message(event['replyToken'], reply_message('もう (おこ)'))
 
