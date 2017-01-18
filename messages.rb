@@ -81,7 +81,7 @@ end
 
 def reply_carousel_museums(museums)
 	{
-		"type": "text"
+		"type": "text",
 		"text": "おっけー\nおすすめのイベントを紹介するね"
 	}
 	randoms = (0...museums.count).to_a.shuffle![0...5]
