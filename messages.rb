@@ -112,7 +112,7 @@ def hoge(museum)
 	museum["type"] = 'keep'
 	{
 		"thumbnailImageUrl": "https://res.cloudinary.com/dn8dt0pep/image/upload/v1484641224/question.jpg",
-    "title": museum["title"].slice(0,40-museum["area"].size-1) + '/' + museum["area"],
+    "title": museum["title"].slice(0,40-museum["area"].size-1) + "\n" + museum["area"],
 	  "text": museum["body"],
 	  "actions": [
       {
