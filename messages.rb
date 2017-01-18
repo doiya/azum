@@ -78,6 +78,7 @@ def reply_botton_schedule
 	}
 end
 
+=begin
 def reply_message_intro
 	message = {
 		"type": "text",
@@ -86,15 +87,16 @@ def reply_message_intro
 	return message
 	client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
 end
+=end
 
 def reply_carousel_museums(museums)
 	randoms = (0...museums.count).to_a.shuffle![0...5]
 	randoms.map!{|item| hoge(museums[item])}
 	message = [
-		#{
-		#	"type": "text",
-		#	"text": "おっけー\nおすすめのイベントを紹介するね"
-		#},
+		{
+			"type": "text",
+			"text": "おっけー\nおすすめのイベントを紹介するね"
+		},
 		{
 		  "type": "template",
 		  "altText": "this is a carousel template",
