@@ -81,6 +81,7 @@ end
 
 def reply_carousel_museums(museums)
 	randoms = (0...museums.count).to_a.shuffle![0...5]
+	puts randoms
 	randoms.map!{|item| hoge(museums[item])}
 	{
 	  "type": "template",
