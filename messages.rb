@@ -82,27 +82,12 @@ end
 def reply_carousel_museums(museums)
 	randoms = (0...museums.count).to_a.shuffle![0...5]
 	randoms.map!{|item| hoge(museums[item])}
-	{
-	  "type": "template",
-	  "altText": "this is a carousel template",
-	  "template": {
-	      "type": "carousel",
-	      "columns": randoms
-	  }
-	}
-end
-
-def reply_carousel_bookmarks(channel='')
-	keeps = Keep.where(channel: channel).order("updated_at desc").limit(5).map {|event|
-    hoge(param_decode(event['json']))
-  }
-	keeps
-	{
+{
   "type": "template",
   "altText": "this is a carousel template",
   "template": {
-     "type": "carousel",
-     "columns": keeps
+      "type": "carousel",
+      "columns": randoms
   }
 }
 end
