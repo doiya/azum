@@ -80,6 +80,10 @@ end
 
 
 def reply_carousel_museums(museums)
+	{
+		"type": "text"
+		"text": "おっけー\nおすすめのイベントを紹介するね"
+	}
 	randoms = (0...museums.count).to_a.shuffle![0...5]
 	randoms.map!{|item| hoge(museums[item])}
 {
