@@ -113,7 +113,7 @@ def hoge(museum)
 	{
 		"thumbnailImageUrl": "https://res.cloudinary.com/dn8dt0pep/image/upload/v1484641224/question.jpg",
     "title": museum["title"].slice(0,40-museum["area"].size-1), #+ "/" + museum["area"],
-	  "text": "場所 : " + museum["area"] + "\n" + museum["body"].slice(0.60-museum["area"]-5),
+	  #{}"text": "場所 : " + museum["area"] + "\n" + museum["body"].slice(0.60-museum["area"]-5),
 	  "actions": [
       {
         "type": "uri",
