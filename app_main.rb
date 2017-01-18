@@ -34,7 +34,7 @@ post '/callback' do
 					client.reply_message(event['replyToken'], reply_confirm_start)
 
 				elsif event.message['text'] =~ /寝かせて/
-          client.reply_message(event['replyToken'], reply_message(reply_museum_datas.to_s))
+          client.reply_message(event['replyToken'], reply_message("reply_museum_datas.to_s"))
           #client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
         elsif event.message['text'] =~ /情報/
 	        client.reply_message(event['replyToken'], reply_template_museum(reply_museum_data))
