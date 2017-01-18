@@ -55,6 +55,7 @@ post '/callback' do
 		# Postbackの場合
 		when Line::Bot::Event::Postback
 			if event["postback"]["data"] =~ /行きたい/
+				sleep(1)
 				#client.reply_message(event['replyToken'], reply_botton_schedule)
 				#client.reply_message(event['replyToken'], reply_message_intro)
 				client.reply_message(event['replyToken'], reply_carousel_museums(reply_museum_datas))
